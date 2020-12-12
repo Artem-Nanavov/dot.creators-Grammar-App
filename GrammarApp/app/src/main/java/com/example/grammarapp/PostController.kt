@@ -1,5 +1,9 @@
 package com.example.grammarapp
 
-data class PostHTML(
-    val html : String
+data class PostText(
+    val text : String? = null
+)
+
+data class Test(
+    val hello : String
 )
