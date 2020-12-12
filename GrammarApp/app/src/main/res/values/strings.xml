@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GrammarApp</string>
+    <string name="editUrl">Вставьте ссылку на интересующий вас ресурс</string>
+    <string name="postButton">Составить тест</string>
+</resources>
