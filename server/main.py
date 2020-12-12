@@ -1,7 +1,7 @@
 import spacy
 from flask import Flask, request, jsonify
 from parser import parser
-
+from spacyLogic import searchBatchesActiveVoice
 
 app = Flask(__name__)
 
@@ -12,29 +12,28 @@ def spacyInstallizing(spacyLanguage):
     spacyLanguage.add_pipe(entities, chunks)
     return spacyLanguage
 grammarTextGetter = spacyInstallizing(spacy.load("en_core_web_sm"))
+# print(searchBatchesActiveVoice(grammarTextGetter, parser.text1, 'PAST_SIMPLE'))
 
 
-
-
-def spacySearchText():
-    pass
-
-# Get html
 @app.route('/')
-@app.route('/get-html', methods=["POST"])
+@app.route('/get-text', methods=["POST"])
 def index():
     gettedJson = request.get_json()
-    print(gettedJson)
-    for i in range(2):
-        print()
-    with open('/Users/controldata/PycharmProjects/-dot.creators-Grammar-App/server/html-text.txt', 'w') as txtFile:
-        txtFile.writelines(parser(gettedJson['html']))
-    print(parser(gettedJson['html']))
+    print(gettedJson, '\n')
+    text = parser(gettedJson['text'])
+
+    with open('/Users/controldata/PycharmProjects/-dot.creators-Grammar-App/server/rawText.txt', 'w') as textFile:
+        textFile.writelines(text)
+
+    print(parser(gettedJson['text']))
+    print(searchBatchesActiveVoice(grammarTextGetter, text, 'PAST_SIMPLE'))
+    with open('/Users/controldata/PycharmProjects/-dot.creators-Grammar-App/server/parsedText.txt',
+              'w') as parsedTextFile:
+        parsedTextFile.writelines(str(searchBatchesActiveVoice(grammarTextGetter, text, 'PAST_SIMPLE')))
+
     return jsonify(gettedJson)
 
-@app.route('/get', methods=["GET"])
-def helloWorld():
-    return "Hello world"
+
 if __name__ == '__main__':
     app.debug = True
-    app.run(host = '192.168.0.14',port=5000)
+    app.run(host='192.168.0.14', port=5000)

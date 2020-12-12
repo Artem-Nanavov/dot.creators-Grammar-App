@@ -1,0 +1,1 @@
+[[['what', 'happened']], [[[47, 51], [52, 60]]], [['what', 'happen']], ['This Time in History In these videos, find out what happened this month (or any month!) in history.'], [['PRON', 'VERB']], [['nsubj', 'ccomp']]]
