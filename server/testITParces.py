@@ -449,15 +449,15 @@ A GOP Senate fund-raising letter from Sen. Burns of Montana is made to appear pe
 
 
 def parser(text):
-    # text = re.split(r'[.!?\n]', text)
-    split_regex = re.compile(r'[|!|?|&…]')
-    text = filter(lambda t: t, [t.strip() for t in split_regex.split(text)])
-    text = ' .'.join(text)
     text = os.linesep.join([s for s in text.splitlines() if s])
+    # text = re.split(r'[.!?\n]', text)
     text = hyphens(text)
     text = fancyDot(text)
-    return text
-
+    split_regex = re.compile(r'[.|!|?|…]')
+    sentences = filter(lambda t: t, [t.strip() for t in split_regex.split(text)])
+    for s in sentences:
+        print(s)
+    return os.linesep.join(sentences)
 
 def fancyDot(text):
     return text.replace(u"\u1427", ".")
@@ -471,3 +471,4 @@ def hyphens(text):
     for item in replaceList:
         text = text.replace(item, "-")
     return text
+print('\n', parser(text1))

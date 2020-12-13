@@ -53,10 +53,11 @@ def searchBatchesIndexes(text, batchSize):
 
 def searchBatchesActiveVoice(grammarTextGetter, text, grammarRule='ALL'):
     text = parser(text)
-    batchIndexes = searchBatchesIndexes(text, 1000)
+    batchIndexes = searchBatchesIndexes(text, 5000)
     textSplit = [text[batchIndexes[i - 1]:batchIndexes[i]] for i in range(1, len(batchIndexes))]
 
     docs = list(grammarTextGetter.pipe(textSplit))
+    print(list(grammarTextGetter.pipe(textSplit)))
 
     tenseRule = getActiveTenseRule(grammarRule)
 
