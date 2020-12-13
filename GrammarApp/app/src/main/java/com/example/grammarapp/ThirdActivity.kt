@@ -1,10 +1,9 @@
 package com.example.grammarapp
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,7 +16,7 @@ class ThirdActivity : AppCompatActivity() {
     private  var answerVerbs : TextView? = null
     private var grammarApi: GrammarApi? = null
     private var getAnswer : Button? = null
-
+    val buttonClicked = "IS_BUTTON_CLICKED"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.third_activity)
@@ -49,12 +48,14 @@ class ThirdActivity : AppCompatActivity() {
                 }
                 val texts = response.body()!!
                 var count = 1
-                var downMark : Int
+                var downMark: Int
                 for (text in texts) {
                     var questions = ""
                     downMark = text.readyVerb!!.length
-                    questions += "${count++}): ${text.perhaps!!.replace(text.readyVerb!!, 
-                            "${"_".repeat(downMark)}" + "(${text.rawVerb!!})")}"
+                    questions += "${count++}) ${
+                        text.perhaps!!.replace(text.readyVerb!!,
+                                "${"_".repeat(downMark)}" + "(${text.rawVerb!!})")
+                    }"
                     downMark = 0
                     grammarTest!!.append(questions + "\n")
                 }
@@ -77,7 +78,7 @@ class ThirdActivity : AppCompatActivity() {
                 var count = 1
                 for (text in texts) {
                     var answers = ""
-                    answers += "${count++}): ${text.readyVerb!!}"
+                    answers += "${count++}) ${text.readyVerb!!}"
                     answerVerbs!!.append(answers + "\n")
                 }
             }
@@ -87,4 +88,18 @@ class ThirdActivity : AppCompatActivity() {
             }
         })
     }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState?.run {
+            putString(buttonClicked, answerVerbs!!.text.toString())
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        answerVerbs!!.text = savedInstanceState?.getString(buttonClicked)
+    }
+
 }
