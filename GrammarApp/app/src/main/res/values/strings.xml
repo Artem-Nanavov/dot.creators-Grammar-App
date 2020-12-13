@@ -9,4 +9,8 @@
     <string name="hint_second">Выберите КАТЕГОРИЮ, тест по которой хотели бы пройти</string>
     <string name="category">Категория</string>
     <string name="create_test">СОСТАВИТЬ ТЕСТ</string>
+    <string name="getAnswer">Получить ответы</string>
+    <string-array name="categorySpinner">
+        <item>Past Simple</item>
+    </string-array>
 </resources>

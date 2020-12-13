@@ -5,5 +5,7 @@ data class PostText(
 )
 
 data class Test(
-    val hello : String
+    val readyVerb : String? = null,
+    val rawVerb : String? = null,
+    val perhaps : String? = null
 )

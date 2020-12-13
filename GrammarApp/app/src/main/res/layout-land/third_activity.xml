@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
+
+    <Button
+        android:id="@+id/button_submit2"
+        style="@android:style/Widget.Button"
+        android:layout_width="300dp"
+        android:layout_height="67dp"
+        android:backgroundTint="@color/sea_1"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/create_test"
+        android:textColor="@color/purple_3"
+        android:textStyle="bold"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="151dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

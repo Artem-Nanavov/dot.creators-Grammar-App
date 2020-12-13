@@ -7,8 +7,8 @@ import retrofit2.http.POST
 
 interface GrammarApi {
     @POST("get-text")
-    fun createHtml(@Body post: PostText) : Call<PostText>
+    fun createText(@Body post: PostText) : Call<PostText>
 
-    @GET("get")
-    fun getTest() : Call<Test>
+    @GET("get-test")
+    fun getTest() : Call<List<Test>>
 }

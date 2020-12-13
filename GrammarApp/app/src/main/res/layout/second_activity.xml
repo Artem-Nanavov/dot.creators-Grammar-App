@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageLogo3" />
 
     <Spinner
-        android:id="@+id/etCategory"
+        android:id="@+id/setCategory"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -52,7 +52,7 @@
         tools:text="Выберите категорию" />
 
     <Button
-        android:id="@+id/button_submit2"
+        android:id="@+id/createTest"
         style="@android:style/Widget.Button"
         android:layout_width="300dp"
         android:layout_height="67dp"
@@ -65,7 +65,7 @@
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/setCategory" />
 
     <TextView
         android:id="@+id/textView"
@@ -78,7 +78,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_submit2"
+        app:layout_constraintTop_toBottomOf="@+id/createTest"
         tools:text="@string/hint_second" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

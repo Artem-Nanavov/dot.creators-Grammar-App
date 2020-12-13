@@ -18,7 +18,7 @@
         tools:ignore="VectorDrawableCompat" />
 
     <Button
-        android:id="@+id/button_submit4"
+        android:id="@+id/createTest"
         style="@android:style/Widget.Button"
         android:layout_width="386dp"
         android:layout_height="67dp"
@@ -31,7 +31,7 @@
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/setCategory" />
 
     <TextView
         android:id="@+id/textView4"
@@ -45,7 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_submit2"
+        app:layout_constraintTop_toBottomOf="@+id/createTest"
         tools:text="@string/hint_second" />
 
     <TextView
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageLogo5" />
 
     <Spinner
-        android:id="@+id/etCategory"
+        android:id="@+id/setCategory"
         android:layout_width="386dp"
         android:layout_height="60dp"
 
