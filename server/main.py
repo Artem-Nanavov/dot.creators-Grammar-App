@@ -29,7 +29,7 @@ def convertToJsonList(result):
     readyVerbListLenght = len(readyVerb)
     rawVerb = result[2]
     perhaps = result[3]
-    stringToResult = ''
+    stringToResult = '['
     for i in range(readyVerbListLenght):
         dictToResult = {}
         dictToResult["readyVerb"] = readyVerb[i][len(readyVerb[i])-1]
@@ -38,6 +38,8 @@ def convertToJsonList(result):
         stringToResult += json.dumps(dictToResult)
         if i != readyVerbListLenght - 1:
             stringToResult += ', '
+        else:
+            stringToResult += ']'
     return stringToResult
 
 
